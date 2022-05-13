@@ -41,5 +41,6 @@
 		"postbuild": "cpy README.md ./build",
 		"lint": "eslint ./src/**/*.ts",
 		"fix": "eslint ./src/**/*.ts --fix"
-	}
+	},
+	"main": "./src"
 }
