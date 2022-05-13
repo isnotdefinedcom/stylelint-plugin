@@ -1,11 +1,11 @@
 import { Root } from 'postcss';
 import { parse } from 'postcss-values-parser';
-import { createPlugin, PostcssResult, utils} from 'stylelint';
-import { wording } from '../wording.js';
-import { defaultOptions } from './option.js'
+import { createPlugin, PostcssResult, utils } from 'stylelint';
+import { defaultOptions } from './option.js';
 import { Options } from './option.interface.js';
+import { wording } from '../wording.js';
 
-const ruleName = '@isnotdefined/unit-step';
+const ruleName : string = '@isnotdefined/unit-step';
 
 function validateOptions(result : PostcssResult, options : Options)
 {
@@ -17,16 +17,16 @@ function validateOptions(result : PostcssResult, options : Options)
 		{
 			step: value => value > 0,
 			units: value => defaultOptions.units.includes(value),
-			properties: value => defaultOptions.properties.includes(value),
+			properties: value => defaultOptions.properties.includes(value)
 		}
 	});
 }
 
-function rule(primaryOptions: object, secondaryOptions: object, context: { fix: boolean; })
+function rule(primaryOptions : Options, secondaryOptions : Options, context : { fix : boolean; })
 {
-	const options = { ...defaultOptions, ...primaryOptions };
+	const options : Options = { ...defaultOptions, ...primaryOptions };
 
-	return (root : Root, result: PostcssResult) =>
+	return (root : Root, result : PostcssResult) =>
 	{
 		if (validateOptions(result, options))
 		{
@@ -38,11 +38,11 @@ function rule(primaryOptions: object, secondaryOptions: object, context: { fix: 
 					{
 						if (options.units.includes(node.unit) && Number(node.value) % options.step > 0)
 						{
-							const valueFixed = Math.round(Number(node.value) / options.step) * options.step + node.unit;
+							const unitFixed : string = Math.round(Number(node.value) / options.step) * options.step + node.unit;
 
 							utils.report(
 							{
-								message: wording.expected + ' "' + property + '" ' + wording.value + ' ' + node.value + node.unit + ' ' + wording.to_be + ' ' + valueFixed,
+								message: wording.expected + ' "' + property + '" ' + wording.value + ' ' + node.value + node.unit + ' ' + wording.to_be + ' ' + unitFixed,
 								node: decl,
 								result,
 								ruleName,
@@ -51,14 +51,14 @@ function rule(primaryOptions: object, secondaryOptions: object, context: { fix: 
 
 							if (context.fix)
 							{
-								decl.value = valueFixed;
+								decl.value = unitFixed;
 							}
 						}
 					});
 				});
 			});
 		}
-	}
+	};
 }
 
 export default createPlugin(ruleName, rule);

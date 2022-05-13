@@ -1,4 +1,6 @@
-export const defaultOptions =
+import { Options } from './option.interface';
+
+export const defaultOptions : Options =
 {
 	step: 0.125,
 	units:
@@ -16,19 +18,31 @@ export const defaultOptions =
 	[
 		'border',
 		'border-bottom',
+		'border-bottom-left-radius',
+		'border-bottom-right-radius',
 		'border-bottom-width',
 		'border-left',
 		'border-left-width',
+		'border-radius',
 		'border-right',
 		'border-right-width',
 		'border-top',
+		'border-top-left-radius',
+		'border-top-right-radius',
 		'border-top-width',
 		'bottom',
+		'columns',
+		'column-gap',
+		'column-width',
 		'flex-basis',
 		'font',
 		'font-size',
+		'gap',
 		'height',
+		'inset',
 		'left',
+		'letter-spacing',
+		'line-height',
 		'margin',
 		'margin-bottom',
 		'margin-left',
@@ -39,6 +53,7 @@ export const defaultOptions =
 		'min-height',
 		'min-width',
 		'outline',
+		'outline-offset',
 		'outline-width',
 		'padding',
 		'padding-bottom',
@@ -46,6 +61,8 @@ export const defaultOptions =
 		'padding-right',
 		'padding-top',
 		'right',
+		'row-gap',
+		'text-indent',
 		'top',
 		'width'
 	]
