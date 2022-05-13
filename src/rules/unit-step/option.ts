@@ -1,0 +1,52 @@
+export const defaultOptions =
+{
+	step: 0.125,
+	units:
+	[
+		'ch',
+		'em',
+		'ex',
+		'rem',
+		'vh',
+		'vw',
+		'vmin',
+		'vmax'
+	],
+	properties:
+	[
+		'border',
+		'border-bottom',
+		'border-bottom-width',
+		'border-left',
+		'border-left-width',
+		'border-right',
+		'border-right-width',
+		'border-top',
+		'border-top-width',
+		'bottom',
+		'flex-basis',
+		'font',
+		'font-size',
+		'height',
+		'left',
+		'margin',
+		'margin-bottom',
+		'margin-left',
+		'margin-right',
+		'margin-top',
+		'max-height',
+		'max-width',
+		'min-height',
+		'min-width',
+		'outline',
+		'outline-width',
+		'padding',
+		'padding-bottom',
+		'padding-left',
+		'padding-right',
+		'padding-top',
+		'right',
+		'top',
+		'width'
+	]
+};
