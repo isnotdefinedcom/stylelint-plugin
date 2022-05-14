@@ -42,7 +42,7 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : { 
 
 							utils.report(
 							{
-								message: wording.expected + ' "' + property + '" ' + wording.value + ' ' + node.value + node.unit + ' ' + wording.to_be + ' ' + unitFixed,
+								message: wording.expected + ' "' + property + '" ' + wording.unit + ' "' + node.value + node.unit + '" ' + wording.to_be + ' "' + unitFixed + '"',
 								node: decl,
 								result,
 								ruleName,

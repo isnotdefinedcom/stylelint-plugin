@@ -1,4 +1,18 @@
 export interface Options
 {
-	properties : Record<string, string>;
+	obsoletes : Obsolete[];
+}
+
+interface Obsolete
+{
+	property :
+	{
+		search : string;
+		replace ?: string;
+	},
+	value ?:
+	{
+		search : string;
+		replace ?: string;
+	}
 }

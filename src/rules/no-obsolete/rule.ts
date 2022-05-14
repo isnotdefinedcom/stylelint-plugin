@@ -14,7 +14,7 @@ function validateOptions(result : PostcssResult, options : Options)
 		// @ts-ignore
 		possible:
 		{
-			properties: value => value
+			obsoletes: value => value
 		}
 	});
 }
@@ -27,24 +27,41 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : { 
 	{
 		if (validateOptions(result, options))
 		{
-			Object.keys(options.properties)?.map(property =>
+			options.obsoletes?.map(obsolete =>
 			{
-				root.walkDecls(property, decl =>
+				root.walkDecls(obsolete.property.search, decl =>
 				{
-					const propertyFixed : string = options.properties[property];
-
-					utils.report(
+					if (obsolete.property.replace)
 					{
-						message: wording.expected + ' "' + property + '" ' + wording.property + ' ' + wording.to_be + ' "' + propertyFixed + '"',
-						node: decl,
-						result,
-						ruleName,
-						word: decl.value
-					});
+						utils.report(
+						{
+							message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.property + ' ' + wording.to_be + ' "' + obsolete.property.replace + '"',
+							node: decl,
+							result,
+							ruleName,
+							word: decl.prop
+						});
 
-					if (context.fix)
+						if (context.fix)
+						{
+							decl.prop = obsolete.property.replace;
+						}
+					}
+					else if (obsolete.value.search && obsolete.value.replace && decl.value === obsolete.value.search)
 					{
-						decl.prop = propertyFixed;
+						utils.report(
+						{
+							message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '" ' + wording.to_be + ' "' + obsolete.value.replace + '"',
+							node: decl,
+							result,
+							ruleName,
+							word: decl.value
+						});
+
+						if (context.fix)
+						{
+							decl.value = obsolete.value.replace;
+						}
 					}
 				});
 			});
