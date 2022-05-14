@@ -28,6 +28,23 @@ export const defaultOptions : Options =
 		{
 			property:
 			{
+				search: 'grid-row-gap',
+				replace: 'row-gap'
+			}
+		},
+		{
+			property:
+			{
+				search: 'text-decoration'
+			},
+			value:
+			{
+				search: 'blink'
+			}
+		},
+		{
+			property:
+			{
 				search: 'word-break'
 			},
 			value:

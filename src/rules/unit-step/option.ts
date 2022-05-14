@@ -31,6 +31,7 @@ export const defaultOptions : Options =
 		'border-top-right-radius',
 		'border-top-width',
 		'bottom',
+		'box-shadow',
 		'columns',
 		'column-gap',
 		'column-width',

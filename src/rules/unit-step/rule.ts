@@ -1,6 +1,6 @@
 import { Root } from 'postcss';
-import { parse } from 'postcss-values-parser';
-import { createPlugin, PostcssResult, utils } from 'stylelint';
+import { ContainerBase, parse } from 'postcss-values-parser';
+import { createPlugin, PluginContext, PostcssResult, utils } from 'stylelint';
 import { defaultOptions } from './option.js';
 import { Options } from './option.interface.js';
 import { wording } from '../wording.js';
@@ -22,7 +22,7 @@ function validateOptions(result : PostcssResult, options : Options)
 	});
 }
 
-function rule(primaryOptions : Options, secondaryOptions : Options, context : { fix : boolean; })
+function rule(primaryOptions : Options, secondaryOptions : Options, context : PluginContext)
 {
 	const options : Options = { ...defaultOptions, ...primaryOptions };
 
@@ -34,27 +34,30 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : { 
 			{
 				root.walkDecls(property, decl =>
 				{
-					parse(decl.value).walkNumerics(node =>
+					const nodes : ContainerBase = parse(decl.value);
+
+					nodes.walkNumerics(node =>
 					{
 						if (options.units.includes(node.unit) && Number(node.value) % options.step > 0)
 						{
-							const unitFixed : string = Math.round(Number(node.value) / options.step) * options.step + node.unit;
+							const valueFixed : number = Math.round(Number(node.value) / options.step) * options.step;
 
 							utils.report(
 							{
-								message: wording.expected + ' "' + property + '" ' + wording.unit + ' "' + node.value + node.unit + '" ' + wording.to_be + ' "' + unitFixed + '"',
+								message: wording.expected + ' "' + property + '" ' + wording.unit + ' "' + node.value + node.unit + '" ' + wording.to_be + ' "' + valueFixed + node.unit + '"',
 								node: decl,
 								result,
 								ruleName,
 								word: decl.value
 							});
-
-							if (context.fix)
-							{
-								decl.value = unitFixed;
-							}
+							node.value = valueFixed.toString();
 						}
 					});
+
+					if (context.fix)
+					{
+						decl.value = nodes.toString();
+					}
 				});
 			});
 		}
