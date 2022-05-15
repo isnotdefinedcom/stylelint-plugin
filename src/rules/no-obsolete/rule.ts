@@ -1,8 +1,8 @@
 import { Root } from 'postcss';
 import { createPlugin, PluginContext, PostcssResult, utils } from 'stylelint';
-import { defaultOptions } from './option.js';
-import { Options } from './option.interface.js';
-import { wording } from '../wording.js';
+import { defaultOptions } from './option';
+import { Options } from './option.interface';
+import { wording } from '../wording';
 
 const ruleName : string = '@isnotdefined/no-obsolete';
 

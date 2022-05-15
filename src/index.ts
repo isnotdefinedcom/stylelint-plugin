@@ -1,5 +1,5 @@
-import noObsoleteRule from './rules/no-obsolete/rule.js';
-import unitStepRule from './rules/unit-step/rule.js';
+import noObsoleteRule from './rules/no-obsolete/rule';
+import unitStepRule from './rules/unit-step/rule';
 
 export default
 [
