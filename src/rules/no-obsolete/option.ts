@@ -52,6 +52,12 @@ export const defaultOptions : Options =
 				search: 'break-word',
 				replace: 'break-all'
 			}
+		},
+		{
+			property:
+			{
+				search: 'zoom'
+			}
 		}
 	]
 };

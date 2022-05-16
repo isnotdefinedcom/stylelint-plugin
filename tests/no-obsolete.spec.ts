@@ -9,24 +9,35 @@ describe('no-obsolete', () =>
 		expect(rules[0].ruleName).to.be.equal('@isnotdefined/no-obsolete');
 	});
 
-	it('test rule', async() =>
+	[
+		'Expected "clip" property to be "clip-path"',
+		'Expected "grid-gap" property to be "gap"',
+		'Expected "grid-column-gap" property to be "column-gap"',
+		'Expected "grid-row-gap" property to be "row-gap"',
+		'Expected "word-break" value "break-word" to be "break-all"',
+		'Unexpected "zoom" property'
+	]
+	.map((message, index) =>
 	{
-		const linterResult : LinterResult = await lint(
+		it('test rule #' + index, async () =>
 		{
-			files: './tests/providers/no-obsolete.css',
-			config:
+			const linterResult : LinterResult = await lint(
 			{
-				plugins:
-				[
-					'./src'
-				],
-				rules:
+				files: './tests/providers/no-obsolete.css',
+				config:
 				{
-					'@isnotdefined/no-obsolete': true
+					plugins:
+					[
+						'./src'
+					],
+					rules:
+					{
+						'@isnotdefined/no-obsolete': true
+					}
 				}
-			}
-		});
+			});
 
-		expect(linterResult.results[0]._postcssResult.messages[0].text).to.equal('Expected "grid-gap" property to be "gap"');
-	});
+			expect(linterResult.results[0]._postcssResult.messages[index].text).to.equal(message);
+		});
+	})
 });

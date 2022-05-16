@@ -47,7 +47,7 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							decl.prop = obsolete.property.replace;
 						}
 					}
-					if (obsolete?.value?.search === decl.value)
+					else if (obsolete?.value?.search === decl.value)
 					{
 						if (obsolete?.value?.replace)
 						{

@@ -1,4 +1,9 @@
 .test
 {
+	clip: rect(1em 1em 1em 1em);
 	grid-gap: 1em;
+	grid-column-gap: 1em;
+	grid-row-gap: 1em;
+	word-break: break-word;
+	zoom: 1;
 }

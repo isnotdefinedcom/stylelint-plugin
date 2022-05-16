@@ -9,24 +9,32 @@ describe('unit-step', () =>
 		expect(rules[1].ruleName).to.be.equal('@isnotdefined/unit-step');
 	});
 
-	it('test rule', async() =>
+	[
+		'Expected "font" unit "1.1em" to be "1.125em"',
+		'Expected "height" unit "1.05em" to be "1em"',
+		'Expected "width" unit "1.20em" to be "1.25em"'
+	]
+	.map((message, index) =>
 	{
-		const linterResult : LinterResult = await lint(
+		it('test rule #' + index, async () =>
 		{
-			files: './tests/providers/unit-step.css',
-			config:
+			const linterResult : LinterResult = await lint(
 			{
-				plugins:
-				[
-					'./src'
-				],
-				rules:
+				files: './tests/providers/unit-step.css',
+				config:
 				{
-					'@isnotdefined/unit-step': true
+					plugins:
+					[
+						'./src'
+					],
+					rules:
+					{
+						'@isnotdefined/unit-step': true
+					}
 				}
-			}
-		});
+			});
 
-		expect(linterResult.results[0]._postcssResult.messages[0].text).to.equal('Expected "font" unit "1.1rem" to be "1.125rem"');
+			expect(linterResult.results[0]._postcssResult.messages[index].text).to.equal(message);
+		});
 	});
 });
