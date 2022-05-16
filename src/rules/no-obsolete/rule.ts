@@ -47,6 +47,17 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							decl.prop = obsolete.property.replace;
 						}
 					}
+					else if (!obsolete?.value?.search)
+					{
+						utils.report(
+						{
+							message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.property,
+							node: decl,
+							result,
+							ruleName,
+							word: decl.prop
+						});
+					}
 					else if (obsolete?.value?.search === decl.value)
 					{
 						if (obsolete?.value?.replace)
@@ -76,17 +87,6 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 								word: decl.value
 							});
 						}
-					}
-					else
-					{
-						utils.report(
-						{
-							message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.property,
-							node: decl,
-							result,
-							ruleName,
-							word: decl.prop
-						});
 					}
 				});
 			});

@@ -1,6 +1,15 @@
-.test
+.test-valid
 {
-	clip: rect(1em 1em 1em 1em);
+	clip-path: unset;
+	gap: 1em;
+	column-gap: 1em;
+	row-gap: 1em;
+	word-break: break-all;
+}
+
+.test-invalid
+{
+	clip: unset;
 	grid-gap: 1em;
 	grid-column-gap: 1em;
 	grid-row-gap: 1em;

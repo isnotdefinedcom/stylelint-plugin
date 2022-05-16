@@ -1,7 +1,7 @@
 {
 	"name": "@isnotdefined/stylelint-plugin",
 	"description": "Yet another Stylelint plugin",
-	"version": "1.0.0-alpha.6",
+	"version": "1.0.0-alpha.7",
 	"license": "MIT",
 	"keywords":
 	[

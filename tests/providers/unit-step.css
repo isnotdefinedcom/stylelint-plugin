@@ -1,4 +1,11 @@
-.test
+.test-valid
+{
+	font: 1.125em arial;
+	height: 1em;
+	width: 1.25em;
+}
+
+.test-invalid
 {
 	font: 1.1em arial;
 	height: 1.05em;
