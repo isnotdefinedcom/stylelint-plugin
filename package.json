@@ -1,7 +1,7 @@
 {
 	"name": "@isnotdefined/stylelint-plugin",
 	"description": "Yet another Stylelint plugin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"keywords":
 	[
@@ -22,6 +22,11 @@
 		"type": "git",
 		"url": "https://github.com/isnotdefined-com/stylelint-plugin.git"
 	},
+	"dependencies":
+	{
+		"postcss": "^8",
+		"postcss-values-parser": "^6"
+	},
 	"devDependencies":
 	{
 		"@isnotdefined/eslint-config": "5.0.0",
@@ -33,8 +38,6 @@
 		"del-cli": "4.0.1",
 		"eslint": "8.15.0",
 		"mocha": "10.0.0",
-		"postcss": "8.4.13",
-		"postcss-values-parser": "6.0.2",
 		"stylelint": "14.8.2",
 		"ts-node": "10.7.0",
 		"typescript": "4.6.4"
