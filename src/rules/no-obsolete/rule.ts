@@ -58,35 +58,32 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							word: decl.prop
 						});
 					}
-					else if (obsolete?.value?.search === decl.value)
+					else if (obsolete?.value?.search === decl.value && obsolete?.value?.replace)
 					{
-						if (obsolete?.value?.replace)
+						utils.report(
 						{
-							utils.report(
-							{
-								message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '" ' + wording.to_be + ' "' + obsolete.value.replace + '"',
-								node: decl,
-								result,
-								ruleName,
-								word: decl.value
-							});
+							message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '" ' + wording.to_be + ' "' + obsolete.value.replace + '"',
+							node: decl,
+							result,
+							ruleName,
+							word: decl.value
+						});
 
-							if (context.fix)
-							{
-								decl.value = obsolete.value.replace;
-							}
-						}
-						else
+						if (context.fix)
 						{
-							utils.report(
-							{
-								message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '"',
-								node: decl,
-								result,
-								ruleName,
-								word: decl.value
-							});
+							decl.value = obsolete.value.replace;
 						}
+					}
+					else if (!obsolete?.value?.replace)
+					{
+						utils.report(
+						{
+							message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '"',
+							node: decl,
+							result,
+							ruleName,
+							word: decl.value
+						});
 					}
 				});
 			});
