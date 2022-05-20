@@ -12,6 +12,7 @@ describe('no-obsolete', () =>
 	[
 		'Unexpected "document" at-rule',
 		'Unexpected "viewport" at-rule',
+		'Unexpected "box-sizing" value "padding-box"',
 		'Expected "clip" property to be "clip-path"',
 		'Expected "grid-gap" property to be "gap"',
 		'Expected "grid-column-gap" property to be "column-gap"',

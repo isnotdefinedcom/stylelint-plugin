@@ -22,6 +22,16 @@ export const defaultOptions : Options =
 		{
 			name:
 			{
+				search: 'box-sizing'
+			},
+			value:
+			{
+				search: 'padding-box'
+			}
+		},
+		{
+			name:
+			{
 				search: 'clip',
 				replace: 'clip-path'
 			}

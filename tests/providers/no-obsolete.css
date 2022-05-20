@@ -13,6 +13,7 @@
 
 .test-valid
 {
+	box-sizing: border-box;
 	clip-path: unset;
 	gap: 1em;
 	column-gap: 1em;
@@ -22,6 +23,7 @@
 
 .test-invalid
 {
+	box-sizing: padding-box;
 	clip: unset;
 	grid-gap: 1em;
 	grid-column-gap: 1em;

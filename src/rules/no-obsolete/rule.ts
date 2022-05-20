@@ -108,7 +108,7 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							decl.value = property.value.replace;
 						}
 					}
-					else if (!property?.value?.replace)
+					else if (property?.value?.search === decl.value && !property?.value?.replace)
 					{
 						utils.report(
 						{
