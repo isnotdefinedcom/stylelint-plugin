@@ -1,3 +1,16 @@
+@document domain('localhost')
+{
+	body
+	{
+		all: unset;
+	}
+}
+
+@viewport
+{
+	orientation: landscape;
+}
+
 .test-valid
 {
 	clip-path: unset;
@@ -13,6 +26,14 @@
 	grid-gap: 1em;
 	grid-column-gap: 1em;
 	grid-row-gap: 1em;
+	ime-mode: unset;
+	scroll-snap-coordinate: unset;
+	scroll-snap-destination: unset;
+	scroll-snap-type-x: unset;
+	scroll-snap-type-y: unset;
+	scroll-snap-points-x: unset;
+	scroll-snap-points-y: unset;
 	word-break: break-word;
 	zoom: 1;
 }
+

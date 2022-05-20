@@ -1,11 +1,21 @@
 export interface Options
 {
-	obsoletes : Obsolete[];
+	atRules : AtRule[];
+	properties : Property[];
 }
 
-interface Obsolete
+interface AtRule
 {
-	property :
+	name :
+	{
+		search : string;
+		replace ?: string;
+	}
+}
+
+interface Property
+{
+	name :
 	{
 		search : string;
 		replace ?: string;

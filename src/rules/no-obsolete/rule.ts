@@ -14,7 +14,8 @@ function validateOptions(result : PostcssResult, options : Options)
 		// @ts-ignore
 		possible:
 		{
-			obsoletes: value => value
+			atRules: value => value,
+			properties: value => value
 		}
 	});
 }
@@ -27,15 +28,48 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 	{
 		if (validateOptions(result, options))
 		{
-			options.obsoletes?.map(obsolete =>
+			options.atRules?.map(atRule =>
 			{
-				root.walkDecls(obsolete.property.search, decl =>
+				root.walkAtRules(atRule.name.search, decl =>
 				{
-					if (obsolete?.property?.replace)
+					if (atRule?.name?.replace)
 					{
 						utils.report(
 						{
-							message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.property + ' ' + wording.to_be + ' "' + obsolete.property.replace + '"',
+							message: wording.expected + ' "' + atRule.name.search + '" ' + wording.atRule + ' ' + wording.toBe + ' "' + atRule.name.replace + '"',
+							node: decl,
+							result,
+							ruleName,
+							word: decl.name
+						});
+
+						if (context.fix)
+						{
+							decl.name = atRule.name.replace;
+						}
+					}
+					else
+					{
+						utils.report(
+						{
+							message: wording.unexpected + ' "' + atRule.name.search + '" ' + wording.atRule,
+							node: decl,
+							result,
+							ruleName,
+							word: decl.name
+						});
+					}
+				});
+			});
+			options.properties?.map(property =>
+			{
+				root.walkDecls(property.name.search, decl =>
+				{
+					if (property?.name?.replace)
+					{
+						utils.report(
+						{
+							message: wording.expected + ' "' + property.name.search + '" ' + wording.property + ' ' + wording.toBe + ' "' + property.name.replace + '"',
 							node: decl,
 							result,
 							ruleName,
@@ -44,25 +78,25 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 
 						if (context.fix)
 						{
-							decl.prop = obsolete.property.replace;
+							decl.prop = property.name.replace;
 						}
 					}
-					else if (!obsolete?.value?.search)
+					else if (!property?.value?.search)
 					{
 						utils.report(
 						{
-							message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.property,
+							message: wording.unexpected + ' "' + property.name.search + '" ' + wording.property,
 							node: decl,
 							result,
 							ruleName,
 							word: decl.prop
 						});
 					}
-					else if (obsolete?.value?.search === decl.value && obsolete?.value?.replace)
+					else if (property?.value?.search === decl.value && property?.value?.replace)
 					{
 						utils.report(
 						{
-							message: wording.expected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '" ' + wording.to_be + ' "' + obsolete.value.replace + '"',
+							message: wording.expected + ' "' + property.name.search + '" ' + wording.value + ' "' + property.value.search + '" ' + wording.toBe + ' "' + property.value.replace + '"',
 							node: decl,
 							result,
 							ruleName,
@@ -71,14 +105,14 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 
 						if (context.fix)
 						{
-							decl.value = obsolete.value.replace;
+							decl.value = property.value.replace;
 						}
 					}
-					else if (!obsolete?.value?.replace)
+					else if (!property?.value?.replace)
 					{
 						utils.report(
 						{
-							message: wording.unexpected + ' "' + obsolete.property.search + '" ' + wording.value + ' "' + obsolete.value.search + '"',
+							message: wording.unexpected + ' "' + property.name.search + '" ' + wording.value + ' "' + property.value.search + '"',
 							node: decl,
 							result,
 							ruleName,

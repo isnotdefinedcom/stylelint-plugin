@@ -44,7 +44,7 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 
 							utils.report(
 							{
-								message: wording.expected + ' "' + property + '" ' + wording.unit + ' "' + node.value + node.unit + '" ' + wording.to_be + ' "' + valueFixed + node.unit + '"',
+								message: wording.expected + ' "' + property + '" ' + wording.unit + ' "' + node.value + node.unit + '" ' + wording.toBe + ' "' + valueFixed + node.unit + '"',
 								node: decl,
 								result,
 								ruleName,

@@ -10,10 +10,19 @@ describe('no-obsolete', () =>
 	});
 
 	[
+		'Unexpected "document" at-rule',
+		'Unexpected "viewport" at-rule',
 		'Expected "clip" property to be "clip-path"',
 		'Expected "grid-gap" property to be "gap"',
 		'Expected "grid-column-gap" property to be "column-gap"',
 		'Expected "grid-row-gap" property to be "row-gap"',
+		'Unexpected "ime-mode" property',
+		'Unexpected "scroll-snap-coordinate" property',
+		'Unexpected "scroll-snap-destination" property',
+		'Unexpected "scroll-snap-type-x" property',
+		'Unexpected "scroll-snap-type-y" property',
+		'Unexpected "scroll-snap-points-x" property',
+		'Unexpected "scroll-snap-points-y" property',
 		'Expected "word-break" value "break-word" to be "break-all"',
 		'Unexpected "zoom" property'
 	]

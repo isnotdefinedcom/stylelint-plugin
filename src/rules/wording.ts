@@ -2,8 +2,9 @@ export const wording : Record<string, string> =
 {
 	expected: 'Expected',
 	unexpected: 'Unexpected',
+	atRule: 'at-rule',
 	property: 'property',
 	value: 'value',
 	unit: 'unit',
-	to_be: 'to be'
+	toBe: 'to be'
 };

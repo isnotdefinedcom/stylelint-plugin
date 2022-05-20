@@ -2,38 +2,95 @@ import { Options } from './option.interface';
 
 export const defaultOptions : Options =
 {
-	obsoletes:
+	atRules:
 	[
 		{
-			property:
+			name:
+			{
+				search: 'document'
+			}
+		},
+		{
+			name:
+			{
+				search: 'viewport'
+			}
+		}
+	],
+	properties:
+	[
+		{
+			name:
 			{
 				search: 'clip',
 				replace: 'clip-path'
 			}
 		},
 		{
-			property:
+			name:
 			{
 				search: 'grid-gap',
 				replace: 'gap'
 			}
 		},
 		{
-			property:
+			name:
 			{
 				search: 'grid-column-gap',
 				replace: 'column-gap'
 			}
 		},
 		{
-			property:
+			name:
 			{
 				search: 'grid-row-gap',
 				replace: 'row-gap'
 			}
 		},
 		{
-			property:
+			name:
+			{
+				search: 'ime-mode'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-coordinate'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-destination'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-type-x'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-type-y'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-points-x'
+			}
+		},
+		{
+			name:
+			{
+				search: 'scroll-snap-points-y'
+			}
+		},
+		{
+			name:
 			{
 				search: 'text-decoration'
 			},
@@ -43,7 +100,7 @@ export const defaultOptions : Options =
 			}
 		},
 		{
-			property:
+			name:
 			{
 				search: 'word-break'
 			},
@@ -54,7 +111,7 @@ export const defaultOptions : Options =
 			}
 		},
 		{
-			property:
+			name:
 			{
 				search: 'zoom'
 			}
