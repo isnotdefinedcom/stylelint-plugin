@@ -14,6 +14,10 @@ export const defaultOptions : Options =
 		'vmin',
 		'vmax'
 	],
+	atRules:
+	[
+		'media'
+	],
 	properties:
 	[
 		'border',

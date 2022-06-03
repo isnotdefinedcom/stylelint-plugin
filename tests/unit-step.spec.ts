@@ -10,6 +10,7 @@ describe('unit-step', () =>
 	});
 
 	[
+		'Expected "media" unit "50.1em" to be "50.125em"',
 		'Expected "font" unit "1.1em" to be "1.125em"',
 		'Expected "height" unit "1.05em" to be "1em"',
 		'Expected "width" unit "1.20em" to be "1.25em"'

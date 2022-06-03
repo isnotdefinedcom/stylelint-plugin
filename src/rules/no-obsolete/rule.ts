@@ -42,7 +42,6 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							ruleName,
 							word: decl.name
 						});
-
 						if (context.fix)
 						{
 							decl.name = atRule.name.replace;
@@ -75,7 +74,6 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							ruleName,
 							word: decl.prop
 						});
-
 						if (context.fix)
 						{
 							decl.prop = property.name.replace;
@@ -102,7 +100,6 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							ruleName,
 							word: decl.value
 						});
-
 						if (context.fix)
 						{
 							decl.value = property.value.replace;

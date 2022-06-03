@@ -17,6 +17,7 @@ function validateOptions(result : PostcssResult, options : Options)
 		{
 			step: value => value > 0,
 			units: value => defaultOptions.units.includes(value),
+			atRules: value => defaultOptions.atRules.includes(value),
 			properties: value => defaultOptions.properties.includes(value)
 		}
 	});
@@ -30,6 +31,35 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 	{
 		if (validateOptions(result, options))
 		{
+			options.atRules?.map(atRule =>
+			{
+				root.walkAtRules(atRule, decl =>
+				{
+					const params : ContainerBase = parse(decl.params);
+
+					params.walkNumerics(param =>
+					{
+						if (options.units.includes(param.unit) && Number(param.value) % options.step > 0)
+						{
+							const valueFixed : number = Math.round(Number(param.value) / options.step) * options.step;
+
+							utils.report(
+							{
+								message: wording.expected + ' "' + atRule + '" ' + wording.unit + ' "' + param.value + param.unit + '" ' + wording.toBe + ' "' + valueFixed + param.unit + '"',
+								node: decl,
+								result,
+								ruleName,
+								word: decl.params
+							});
+							param.value = valueFixed.toString();
+						}
+					});
+					if (context.fix)
+					{
+						decl.params = params.toString();
+					}
+				});
+			});
 			options.properties?.map(property =>
 			{
 				root.walkDecls(property, decl =>
@@ -53,7 +83,6 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 							node.value = valueFixed.toString();
 						}
 					});
-
 					if (context.fix)
 					{
 						decl.value = nodes.toString();

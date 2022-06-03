@@ -1,13 +1,19 @@
-.test-valid
+@media (min-width: 50em)
 {
-	font: 1.125em arial;
-	height: 1em;
-	width: 1.25em;
+	.test-valid
+	{
+		font: 1.125em arial;
+		height: 1em;
+		width: 1.25em;
+	}
 }
 
-.test-invalid
+@media (min-width: 50.1em)
 {
-	font: 1.1em arial;
-	height: 1.05em;
-	width: 1.20em;
+	.test-invalid
+	{
+		font: 1.1em arial;
+		height: 1.05em;
+		width: 1.20em;
+	}
 }
