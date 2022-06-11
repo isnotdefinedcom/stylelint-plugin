@@ -1,21 +1,21 @@
 {
 	"compilerOptions":
 	{
-		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": true,
-		"declaration": true,
+		"outDir": "build",
 		"target": "es2015",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"outDir": "./build"
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"resolveJsonModule": true
 	},
 	"include":
 	[
-		"./src",
-		"./package.json"
+		"src",
+		"package.json"
 	],
 	"exclude":
 	[
-		"./node_modules"
+		"node_modules"
 	]
 }
