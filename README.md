@@ -11,7 +11,7 @@ Stylelint Plugin
 Preview
 -------
 
-![Terminal Session](https://raw.githubusercontent.com/@isnotdefined/stylelint-plugin/master/.github/terminal-session.svg?sanitize=true)
+![Terminal Session](https://raw.githubusercontent.com/isnotdefinedcom/stylelint-plugin/master/.github/terminal-session.svg?sanitize=true)
 
 
 Installation

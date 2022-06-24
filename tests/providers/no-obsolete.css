@@ -25,8 +25,8 @@
 {
 	box-sizing: padding-box;
 	clip: unset;
-	grid-gap: 1em;
 	grid-column-gap: 1em;
+	grid-gap: 1em;
 	grid-row-gap: 1em;
 	ime-mode: unset;
 	scroll-snap-coordinate: unset;

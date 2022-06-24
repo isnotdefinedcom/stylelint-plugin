@@ -38,16 +38,16 @@ export const defaultOptions : Options =
 		},
 		{
 			name:
-			{
-				search: 'grid-gap',
-				replace: 'gap'
-			}
+				{
+					search: 'grid-column-gap',
+					replace: 'column-gap'
+				}
 		},
 		{
 			name:
 			{
-				search: 'grid-column-gap',
-				replace: 'column-gap'
+				search: 'grid-gap',
+				replace: 'gap'
 			}
 		},
 		{
