@@ -8,6 +8,12 @@ Stylelint Plugin
 [![License](https://img.shields.io/npm/l/@isnotdefined/stylelint-plugin.svg)](https://npmjs.com/package/@isnotdefined/stylelint-plugin)
 
 
+Preview
+-------
+
+![Terminal Session](https://raw.githubusercontent.com/@isnotdefined/stylelint-plugin/master/.github/terminal-session.svg?sanitize=true)
+
+
 Installation
 ------------
 
