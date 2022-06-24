@@ -4,13 +4,14 @@
 	<circle cx="40" cy="20" r="6" class="is-warning "/>
 	<circle cx="60" cy="20" r="6" class="is-success" />
 	<foreignObject x="20" y="50" height="320" width="867">
-		<pre xmlns="http://www.w3.org/1999/xhtml" class="code-terminal-session"><span class="is-success">user@local</span>:<span class="is-info">~/project</span>$ npm run lint
-no-obsolete.css
+		<pre xmlns="http://www.w3.org/1999/xhtml" class="code-terminal-session"><span class="is-success">user@local</span>:<span class="is-info">~/project</span>$ npm run stylelint
+
+<u>no-obsolete.css</u>
   9:2   <span class="is-error">✖</span>  Unexpected "viewport" at-rule                @isnotdefined/no-obsolete
  26:14  <span class="is-error">✖</span>  Unexpected "box-sizing" value "padding-box"  @isnotdefined/no-obsolete
  28:2   <span class="is-error">✖</span>  Expected "grid-gap" property to be "gap"     @isnotdefined/no-obsolete
 
-unit-step.css
+<u>unit-step.css</u>
  15:9   <span class="is-error">✖</span>  Expected "font" unit "1.1em" to be "1.125em"  @isnotdefined/unit-step
  16:11  <span class="is-error">✖</span>  Expected "height" unit "1.05em" to be "1em"   @isnotdefined/unit-step
 		</pre>
