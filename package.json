@@ -48,7 +48,7 @@
 		"build": "tsc",
 		"postbuild": "cpy README.md build",
 		"lint": "eslint src/**/**/*.ts",
-		"fix": "eslint src/**/**/*.ts --fix",
+		"fix": "npm run lint -- --fix",
 		"test": "mocha"
 	},
 	"main": "src"
