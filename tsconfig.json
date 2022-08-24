@@ -5,17 +5,6 @@
 		"target": "es2015",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"allowSyntheticDefaultImports": true,
-		"declaration": true,
-		"resolveJsonModule": true
-	},
-	"include":
-	[
-		"src",
-		"package.json"
-	],
-	"exclude":
-	[
-		"node_modules"
-	]
+		"declaration": true
+	}
 }
