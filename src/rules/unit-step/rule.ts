@@ -1,6 +1,6 @@
 import { Root } from 'postcss';
 import { ContainerBase, parse } from 'postcss-values-parser';
-import { createPlugin, PluginContext, PostcssResult, utils } from 'stylelint';
+import { Rule, PluginContext, PostcssResult, createPlugin, utils } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
 import { wording } from '../wording';
@@ -93,4 +93,4 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Pl
 	};
 }
 
-export default createPlugin(ruleName, rule);
+export default createPlugin(ruleName, rule as Rule);
