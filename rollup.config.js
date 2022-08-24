@@ -1,28 +1,29 @@
-import typescript from '@rollup/plugin-typescript';
 import del from 'rollup-plugin-delete'
+import ts from 'rollup-plugin-ts'
 import copy from 'rollup-plugin-copy'
+import PACKAGE from './package.json';
 
 export default
 {
 	input: 'src/index.ts',
 	output:
-	{
-		dir: 'build'
-	},
+	[
+		{
+			file: 'build/' + PACKAGE.main,
+			format: 'cjs'
+		},
+		{
+			file: 'build/' + PACKAGE.module,
+			format: 'esm'
+		}
+	],
 	plugins:
 	[
 		del(
 		{
 			targets: 'build'
 		}),
-		typescript(
-		{
-			module: 'esnext',
-			include:
-			[
-				'src/**/**'
-			]
-		}),
+		ts(),
 		copy(
 		{
 			targets:
