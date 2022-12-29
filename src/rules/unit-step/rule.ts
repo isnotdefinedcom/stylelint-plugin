@@ -1,6 +1,6 @@
 import { Root } from 'postcss';
 import { ContainerBase, parse } from 'postcss-values-parser';
-import { Rule, PluginContext, PostcssResult, createPlugin, utils } from 'stylelint';
+import { Rule, RuleContext, PostcssResult, createPlugin, utils } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
 import { wording } from '../wording';
@@ -23,7 +23,7 @@ function validateOptions(result : PostcssResult, options : Options)
 	});
 }
 
-function rule(primaryOptions : Options, secondaryOptions : Options, context : PluginContext)
+function rule(primaryOptions : Options, secondaryOptions : Options, context : RuleContext)
 {
 	const options : Options = { ...defaultOptions, ...primaryOptions };
 

@@ -1,7 +1,7 @@
 import del from 'rollup-plugin-delete'
 import ts from 'rollup-plugin-ts'
 import copy from 'rollup-plugin-copy'
-import PACKAGE from './package.json';
+import PACKAGE from './package.json' assert { type: 'json' };
 
 export default
 {
