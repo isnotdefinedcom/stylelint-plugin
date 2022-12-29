@@ -49,5 +49,5 @@ describe('no-obsolete', () =>
 
 			expect(linterResult.results[0]._postcssResult.messages[index].text).to.equal(message);
 		});
-	})
+	});
 });

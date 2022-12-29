@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { lint, LinterResult } from "stylelint";
+import { lint, LinterResult } from 'stylelint';
 import rules from '../src';
 
 describe('unit-step', () =>
