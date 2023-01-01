@@ -1,9 +1,14 @@
-@document domain('localhost')
+:root
 {
-	body
+	--localhost:
 	{
 		all: unset;
-	}
+	};
+}
+
+@document domain('localhost')
+{
+	@apply --localhost
 }
 
 @viewport
@@ -23,19 +28,34 @@
 
 .test-invalid
 {
+	box-align: center;
+	box-direction: unset;
+	box-flex: unset;
+	box-flex-group: unset;
+	box-lines: unset;
+	box-ordinal-group: unset;
+	box-orient: unset;
+	box-pack: unset;
 	box-sizing: padding-box;
 	clip: unset;
 	grid-column-gap: 1em;
 	grid-gap: 1em;
 	grid-row-gap: 1em;
+	image-orientation: flip;
+	image-rendering: optimizeQuality;
+	image-rendering: optimizeSpeed;
 	ime-mode: unset;
+	page-break-after: unset;
+	page-break-before: unset;
 	scroll-snap-coordinate: unset;
 	scroll-snap-destination: unset;
-	scroll-snap-type-x: unset;
-	scroll-snap-type-y: unset;
 	scroll-snap-points-x: unset;
 	scroll-snap-points-y: unset;
+	scroll-snap-type-x: unset;
+	scroll-snap-type-y: unset;
+	text-decoration: blink;
+	text-decoration-line: blink;
 	word-break: break-word;
-	zoom: 1;
+	user-modify: read-only;
 }
 
