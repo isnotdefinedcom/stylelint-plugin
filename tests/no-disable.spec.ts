@@ -10,6 +10,7 @@ describe.only('no-disable', () =>
 	});
 
 	[
+		'Unexpected "stylelint-disable rule" comment',
 		'Unexpected "stylelint-disable-line" comment',
 		'Unexpected "stylelint-disable-next-line" comment'
 	]

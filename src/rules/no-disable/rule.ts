@@ -29,7 +29,7 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 		{
 			root.walkComments(comment =>
 			{
-				if (options.commands.includes(comment.text))
+				if (options.commands.includes(comment.text.split(' ')[0]))
 				{
 					utils.report(
 					{
