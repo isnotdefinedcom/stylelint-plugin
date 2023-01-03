@@ -2,18 +2,15 @@ import { expect } from 'chai';
 import { lint, LinterResult } from 'stylelint';
 import rules from '../src';
 
-describe('unit-step', () =>
+describe.only('no-disable', () =>
 {
 	it('validate name', () =>
 	{
-		expect(rules[2].ruleName).to.be.equal('@isnotdefined/unit-step');
+		expect(rules[0].ruleName).to.be.equal('@isnotdefined/no-disable');
 	});
 
 	[
-		'Expected "media" unit "50.1em" to be "50.125em"',
-		'Expected "font" unit "1.1em" to be "1.125em"',
-		'Expected "height" unit "1.05em" to be "1em"',
-		'Expected "width" unit "1.20em" to be "1.25em"'
+		'Unexpected "stylelint-disable-next-line" comment'
 	]
 	.map((message, index) =>
 	{
@@ -21,7 +18,7 @@ describe('unit-step', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
-				files: './tests/providers/unit-step.css',
+				files: './tests/providers/no-disable.css',
 				config:
 				{
 					plugins:
@@ -30,7 +27,7 @@ describe('unit-step', () =>
 					],
 					rules:
 					{
-						'@isnotdefined/unit-step': true
+						'@isnotdefined/no-disable': true
 					}
 				}
 			});

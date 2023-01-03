@@ -1,0 +1,15 @@
+.test-valid
+{
+	all: unset;
+}
+
+.test-invalid-one
+{
+	all: unset; /* stylelint-disable-line */
+}
+
+/* stylelint-disable-next-line */
+.test-invalid-two
+{
+	all: unset;
+}
