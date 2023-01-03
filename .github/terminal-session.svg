@@ -8,7 +8,7 @@
 
 <u>no-disable.css</u>
   7:13  <span class="is-error">✖</span>  Unexpected "stylelint-disable-line" comment        @isnotdefined/no-disable
- 24:2   <span class="is-error">✖</span>  Unexpected "stylelint-disable-next-line" comment"  @isnotdefined/no-disable
+ 24:4   <span class="is-error">✖</span>  Unexpected "stylelint-disable-next-line" comment"  @isnotdefined/no-disable
 
 <u>no-obsolete.css</u>
   9:2   <span class="is-error">✖</span>  Unexpected "viewport" at-rule                @isnotdefined/no-obsolete
