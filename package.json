@@ -1,12 +1,15 @@
 {
 	"name": "@isnotdefined/stylelint-plugin",
 	"description": "Yet another Stylelint plugin",
-	"version": "1.4.0",
+	"version": "2.0.0",
 	"license": "MIT",
 	"keywords":
 	[
 		"stylelint",
-		"plugin"
+		"stylelint-plugin",
+		"no-disable",
+		"no-obsolete",
+		"unit-step"
 	],
 	"author":
 	{

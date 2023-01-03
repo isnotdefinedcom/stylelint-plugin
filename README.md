@@ -35,8 +35,10 @@ Refer the plugins and rules inside your `.stylelintrc` file:
 	],
 	"rules":
 	{
+		"@isnotdefined/no-disable": true,
 		"@isnotdefined/no-obsolete": true,
 		"@isnotdefined/unit-step": true
-	}
+	},
+	"ignoreDisables": true
 }
 ```

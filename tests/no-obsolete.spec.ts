@@ -6,7 +6,7 @@ describe('no-obsolete', () =>
 {
 	it('validate name', () =>
 	{
-		expect(rules[0].ruleName).to.be.equal('@isnotdefined/no-obsolete');
+		expect(rules[1].ruleName).to.be.equal('@isnotdefined/no-obsolete');
 	});
 
 	[

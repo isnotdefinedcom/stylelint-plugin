@@ -1,0 +1,22 @@
+/* valid comment */
+.test-valid
+{
+	all: unset;
+}
+
+/* stylelint-disable rule */
+.test-invalid-one
+{
+	all: unset;
+}
+
+.test-invalid-two
+{
+	all: unset; /* stylelint-disable-line */
+}
+
+/* stylelint-disable-next-line */
+.test-invalid-three
+{
+	all: unset;
+}
