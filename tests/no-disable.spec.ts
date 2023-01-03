@@ -10,6 +10,7 @@ describe.only('no-disable', () =>
 	});
 
 	[
+		'Unexpected "stylelint-disable-line" comment',
 		'Unexpected "stylelint-disable-next-line" comment'
 	]
 	.map((message, index) =>
@@ -28,7 +29,8 @@ describe.only('no-disable', () =>
 					rules:
 					{
 						'@isnotdefined/no-disable': true
-					}
+					},
+					ignoreDisables: true
 				}
 			});
 

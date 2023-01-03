@@ -6,7 +6,7 @@
 	"keywords":
 	[
 		"stylelint",
-		"plugin",
+		"stylelint-plugin",
 		"no-disable",
 		"no-obsolete",
 		"unit-step"
