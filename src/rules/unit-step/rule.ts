@@ -93,4 +93,4 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 	};
 }
 
-export default createPlugin(ruleName, rule as Rule);
+export default createPlugin(ruleName, rule as unknown as Rule);

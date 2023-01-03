@@ -1,5 +1,5 @@
 import { Root } from 'postcss';
-import { Rule, RuleContext, PostcssResult, createPlugin, utils } from 'stylelint';
+import { Rule, PostcssResult, createPlugin, utils } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
 import { wording } from '../wording';
@@ -19,7 +19,7 @@ function validateOptions(result : PostcssResult, options : Options)
 	});
 }
 
-function rule(primaryOptions : Options, secondaryOptions : Options, context : RuleContext)
+function rule(primaryOptions : Options)
 {
 	const options : Options = { ...defaultOptions, ...primaryOptions };
 
@@ -39,14 +39,10 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 						ruleName,
 						word: comment.text
 					});
-					if (context.fix)
-					{
-						comment.remove();
-					}
 				}
 			});
 		}
 	};
 }
 
-export default createPlugin(ruleName, rule as Rule);
+export default createPlugin(ruleName, rule as unknown as Rule);
