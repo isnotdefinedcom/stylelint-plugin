@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { lint, LinterResult } from 'stylelint';
 import rules from '../src';
 
-describe.only('no-disable', () =>
+describe('no-disable', () =>
 {
 	it('validate name', () =>
 	{
