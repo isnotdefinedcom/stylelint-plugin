@@ -40,7 +40,7 @@ describe('no-obsolete', () =>
 		'Unexpected "scroll-snap-type-y" property',
 		'Unexpected "text-decoration" value "blink"',
 		'Unexpected "text-decoration-line" value "blink"',
-		'Expected "word-break" value "break-word" to be "break-all"',
+		'Expected "word-break" property to be "overflow-wrap"',
 		'Unexpected "user-modify" property'
 	]
 	.map((message, index) =>

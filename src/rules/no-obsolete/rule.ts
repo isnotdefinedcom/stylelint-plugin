@@ -1,7 +1,7 @@
 import { Root } from 'postcss';
 import { Rule, RuleContext, PostcssResult, createPlugin, utils } from 'stylelint';
 import { defaultOptions } from './option';
-import { Options } from './option.interface';
+import { Options, AtRule, Property } from './option.interface';
 import { wording } from '../wording';
 
 const ruleName : string = '@isnotdefined/no-obsolete';
@@ -30,13 +30,15 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 		{
 			options.atRules?.map(atRule =>
 			{
-				root.walkAtRules(atRule.name.search, decl =>
+				root.walkAtRules(atRule?.name?.search, decl =>
 				{
-					if (atRule?.name?.replace)
+					const { name } : AtRule = atRule;
+
+					if (name?.replace)
 					{
 						utils.report(
 						{
-							message: wording.expected + ' "' + atRule.name.search + '" ' + wording.atRule + ' ' + wording.toBe + ' "' + atRule.name.replace + '"',
+							message: wording.expected + ' "' + name?.search + '" ' + wording.atRule + ' ' + wording.toBe + ' "' + name?.replace + '"',
 							node: decl,
 							result,
 							ruleName,
@@ -44,14 +46,14 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 						});
 						if (context.fix)
 						{
-							decl.name = atRule.name.replace;
+							decl.name = name?.replace;
 						}
 					}
 					else
 					{
 						utils.report(
 						{
-							message: wording.unexpected + ' "' + atRule.name.search + '" ' + wording.atRule,
+							message: wording.unexpected + ' "' + name?.search + '" ' + wording.atRule,
 							node: decl,
 							result,
 							ruleName,
@@ -62,13 +64,16 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 			});
 			options.properties?.map(property =>
 			{
-				root.walkDecls(property.name.search, decl =>
+				root.walkDecls(property?.name?.search, decl =>
 				{
-					if (property?.name?.replace)
+					const { name, value } : Property = property;
+					const valueMatch : boolean = value?.search === decl.value;
+
+					if (!value?.search && name?.replace || valueMatch && name?.replace)
 					{
 						utils.report(
 						{
-							message: wording.expected + ' "' + property.name.search + '" ' + wording.property + ' ' + wording.toBe + ' "' + property.name.replace + '"',
+							message: wording.expected + ' "' + name?.search + '" ' + wording.property + ' ' + wording.toBe + ' "' + name?.replace + '"',
 							node: decl,
 							result,
 							ruleName,
@@ -76,25 +81,25 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 						});
 						if (context.fix)
 						{
-							decl.prop = property.name.replace;
+							decl.prop = name?.replace;
 						}
 					}
-					else if (!property?.value?.search)
+					else if (!value?.search)
 					{
 						utils.report(
 						{
-							message: wording.unexpected + ' "' + property.name.search + '" ' + wording.property,
+							message: wording.unexpected + ' "' + name?.search + '" ' + wording.property,
 							node: decl,
 							result,
 							ruleName,
 							word: decl.prop
 						});
 					}
-					else if (property?.value?.search === decl.value && property?.value?.replace)
+					else if (valueMatch && value?.replace)
 					{
 						utils.report(
 						{
-							message: wording.expected + ' "' + property.name.search + '" ' + wording.value + ' "' + property.value.search + '" ' + wording.toBe + ' "' + property.value.replace + '"',
+							message: wording.expected + ' "' + name?.search + '" ' + wording.value + ' "' + value?.search + '" ' + wording.toBe + ' "' + value?.replace + '"',
 							node: decl,
 							result,
 							ruleName,
@@ -102,14 +107,14 @@ function rule(primaryOptions : Options, secondaryOptions : Options, context : Ru
 						});
 						if (context.fix)
 						{
-							decl.value = property.value.replace;
+							decl.value = value?.replace;
 						}
 					}
-					else if (property?.value?.search === decl.value && !property?.value?.replace)
+					else if (valueMatch && !value?.replace)
 					{
 						utils.report(
 						{
-							message: wording.unexpected + ' "' + property.name.search + '" ' + wording.value + ' "' + property.value.search + '"',
+							message: wording.unexpected + ' "' + name?.search + '" ' + wording.value + ' "' + value?.search + '"',
 							node: decl,
 							result,
 							ruleName,

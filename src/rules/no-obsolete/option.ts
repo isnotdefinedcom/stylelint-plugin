@@ -94,10 +94,10 @@ export const defaultOptions : Options =
 		},
 		{
 			name:
-				{
-					search: 'grid-column-gap',
-					replace: 'column-gap'
-				}
+			{
+				search: 'grid-column-gap',
+				replace: 'column-gap'
+			}
 		},
 		{
 			name:
@@ -224,12 +224,12 @@ export const defaultOptions : Options =
 		{
 			name:
 			{
-				search: 'word-break'
+				search: 'word-break',
+				replace: 'overflow-wrap'
 			},
 			value:
 			{
-				search: 'break-word',
-				replace: 'break-all'
+				search: 'break-word'
 			}
 		},
 		{

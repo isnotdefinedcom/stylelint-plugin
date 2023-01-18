@@ -4,7 +4,7 @@ export interface Options
 	properties : Property[];
 }
 
-interface AtRule
+export interface AtRule
 {
 	name :
 	{
@@ -13,7 +13,7 @@ interface AtRule
 	}
 }
 
-interface Property
+export interface Property
 {
 	name :
 	{
