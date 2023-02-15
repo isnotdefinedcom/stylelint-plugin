@@ -1,9 +1,10 @@
 import { Root } from 'postcss';
-import { Rule, PostcssResult, createPlugin, utils } from 'stylelint';
+import stylelint, { Rule, PostcssResult } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
 import { wording } from '../wording';
 
+const { utils, createPlugin } : typeof stylelint = stylelint;
 const ruleName : string = '@isnotdefined/no-disable';
 
 function validateOptions(result : PostcssResult, options : Options)

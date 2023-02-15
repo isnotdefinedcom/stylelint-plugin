@@ -1,14 +1,16 @@
 import { Root } from 'postcss';
-import { Rule, RuleContext, PostcssResult, createPlugin, utils } from 'stylelint';
+import stylelint, { Rule, PostcssResult } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options, AtRule, Property } from './option.interface';
 import { wording } from '../wording';
+import { RuleContext } from '../../polyfill.type';
 
+const { utils, createPlugin } : typeof stylelint = stylelint;
 const ruleName : string = '@isnotdefined/no-obsolete';
 
 function validateOptions(result : PostcssResult, options : Options)
 {
-	return utils.validateOptions(result, ruleName,
+	return stylelint.utils.validateOptions(result, ruleName,
 	{
 		actual: options,
 		// @ts-ignore

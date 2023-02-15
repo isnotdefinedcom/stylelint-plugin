@@ -1,12 +1,17 @@
 import { expect } from 'chai';
-import { lint, LinterResult } from 'stylelint';
+import stylelint, { LinterResult } from 'stylelint';
 import rules from '../src';
+import { Plugin } from '../src/polyfill.type';
+
+const { lint } : typeof stylelint = stylelint;
 
 describe('unit-step', () =>
 {
 	it('validate name', () =>
 	{
-		expect(rules[2].ruleName).to.be.equal('@isnotdefined/unit-step');
+		const { ruleName } : Plugin = rules[2] as Plugin;
+
+		expect(ruleName).to.be.equal('@isnotdefined/unit-step');
 	});
 
 	[
