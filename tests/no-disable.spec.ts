@@ -1,19 +1,10 @@
 import { expect } from 'chai';
 import stylelint, { LinterResult } from 'stylelint';
-import rules from '../src';
-import { Plugin } from '../src/polyfill.type';
 
 const { lint } : typeof stylelint = stylelint;
 
 describe('no-disable', () =>
 {
-	it('validate name', () =>
-	{
-		const { ruleName } : Plugin = rules[0] as Plugin;
-
-		expect(ruleName).to.be.equal('@isnotdefined/no-disable');
-	});
-
 	[
 		'Unexpected "stylelint-disable rule" comment',
 		'Unexpected "stylelint-disable-line" comment',

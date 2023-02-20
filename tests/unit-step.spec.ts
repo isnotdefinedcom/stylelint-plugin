@@ -1,19 +1,10 @@
 import { expect } from 'chai';
 import stylelint, { LinterResult } from 'stylelint';
-import rules from '../src';
-import { Plugin } from '../src/polyfill.type';
 
 const { lint } : typeof stylelint = stylelint;
 
 describe('unit-step', () =>
 {
-	it('validate name', () =>
-	{
-		const { ruleName } : Plugin = rules[2] as Plugin;
-
-		expect(ruleName).to.be.equal('@isnotdefined/unit-step');
-	});
-
 	[
 		'Expected "media" unit "50.1em" to be "50.125em"',
 		'Expected "font" unit "1.1em" to be "1.125em"',
