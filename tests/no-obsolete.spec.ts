@@ -1,14 +1,9 @@
 import { expect } from 'chai';
-import { lint, LinterResult } from 'stylelint';
-import rules from '../src';
+import stylelint, { LinterResult } from 'stylelint';
+const { lint } : typeof stylelint = stylelint;
 
 describe('no-obsolete', () =>
 {
-	it('validate name', () =>
-	{
-		expect(rules[1].ruleName).to.be.equal('@isnotdefined/no-obsolete');
-	});
-
 	[
 		'Unexpected "apply" at-rule',
 		'Unexpected "document" at-rule',

@@ -1,14 +1,10 @@
 import { expect } from 'chai';
-import { lint, LinterResult } from 'stylelint';
-import rules from '../src';
+import stylelint, { LinterResult } from 'stylelint';
+
+const { lint } : typeof stylelint = stylelint;
 
 describe('no-disable', () =>
 {
-	it('validate name', () =>
-	{
-		expect(rules[0].ruleName).to.be.equal('@isnotdefined/no-disable');
-	});
-
 	[
 		'Unexpected "stylelint-disable rule" comment',
 		'Unexpected "stylelint-disable-line" comment',

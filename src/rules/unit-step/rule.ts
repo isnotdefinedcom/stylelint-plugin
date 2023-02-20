@@ -1,10 +1,11 @@
 import { Root } from 'postcss';
 import { ContainerBase, parse } from 'postcss-values-parser';
-import { Rule, RuleContext, PostcssResult, createPlugin, utils } from 'stylelint';
+import stylelint, { Rule, RuleContext, PostcssResult } from 'stylelint';
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
 import { wording } from '../wording';
 
+const { utils, createPlugin } : typeof stylelint = stylelint;
 const ruleName : string = '@isnotdefined/unit-step';
 
 function validateOptions(result : PostcssResult, options : Options)

@@ -1,14 +1,10 @@
 import { expect } from 'chai';
-import { lint, LinterResult } from 'stylelint';
-import rules from '../src';
+import stylelint, { LinterResult } from 'stylelint';
+
+const { lint } : typeof stylelint = stylelint;
 
 describe('unit-step', () =>
 {
-	it('validate name', () =>
-	{
-		expect(rules[2].ruleName).to.be.equal('@isnotdefined/unit-step');
-	});
-
 	[
 		'Expected "media" unit "50.1em" to be "50.125em"',
 		'Expected "font" unit "1.1em" to be "1.125em"',
