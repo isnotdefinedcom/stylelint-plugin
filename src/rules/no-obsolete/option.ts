@@ -244,6 +244,6 @@ export const defaultOptions : Options =
 				search: 'word-wrap',
 				replace: 'overflow-wrap'
 			}
-		},
+		}
 	]
 };
