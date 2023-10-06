@@ -55,8 +55,8 @@
 	scroll-snap-type-y: unset;
 	text-decoration: blink;
 	text-decoration-line: blink;
-	word-break: break-word;
 	user-modify: unset;
+	word-break: break-word;
 	word-wrap: normal;
 }
 
