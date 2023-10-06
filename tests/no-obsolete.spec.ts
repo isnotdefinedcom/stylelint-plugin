@@ -35,8 +35,9 @@ describe('no-obsolete', () =>
 		'Unexpected "scroll-snap-type-y" property',
 		'Unexpected "text-decoration" value "blink"',
 		'Unexpected "text-decoration-line" value "blink"',
-		'Expected "word-wrap" property to be "overflow-wrap"',
-		'Unexpected "user-modify" property'
+		'Expected "word-break" property to be "overflow-wrap"',
+		'Unexpected "user-modify" property',
+		'Expected "word-wrap" property to be "overflow-wrap"'
 	]
 	.map((message, index) =>
 	{
