@@ -57,5 +57,6 @@
 	text-decoration-line: blink;
 	word-break: break-word;
 	user-modify: unset;
+	word-wrap: normal;
 }
 

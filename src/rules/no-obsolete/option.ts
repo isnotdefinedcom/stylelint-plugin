@@ -224,6 +224,12 @@ export const defaultOptions : Options =
 		{
 			name:
 			{
+				search: 'user-modify'
+			}
+		},
+		{
+			name:
+			{
 				search: 'word-break',
 				replace: 'overflow-wrap'
 			},
@@ -235,7 +241,8 @@ export const defaultOptions : Options =
 		{
 			name:
 			{
-				search: 'user-modify'
+				search: 'word-wrap',
+				replace: 'overflow-wrap'
 			}
 		}
 	]
