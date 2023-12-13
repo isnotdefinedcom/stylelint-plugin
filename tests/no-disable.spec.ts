@@ -1,5 +1,6 @@
+
 import { expect } from 'chai';
-import stylelint, { LinterResult } from 'stylelint';
+import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
 const { lint } : typeof stylelint = stylelint;
 
@@ -21,7 +22,7 @@ describe('no-disable', () =>
 				{
 					plugins:
 					[
-						'./src'
+						'./src/index.ts'
 					],
 					rules:
 					{
@@ -29,9 +30,9 @@ describe('no-disable', () =>
 					},
 					ignoreDisables: true
 				}
-			});
+			} as LinterOptions);
 
-			expect(linterResult.results[0]._postcssResult.messages[index].text).to.equal(message);
+			expect(linterResult.results.at(0)._postcssResult.messages[index].text).to.equal(message);
 		});
 	});
 });

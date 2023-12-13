@@ -6,7 +6,6 @@
 	],
 	"rules":
 	{
-		"@typescript-eslint/ban-ts-comment": "warn",
-		"unicorn/prefer-at": "warn"
+		"@typescript-eslint/ban-ts-comment": "warn"
 	}
 }

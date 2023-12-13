@@ -1,8 +1,10 @@
 import { Root } from 'postcss';
 import stylelint, { Rule, PostcssResult } from 'stylelint';
+
+import { wording } from '../wording';
+
 import { defaultOptions } from './option';
 import { Options } from './option.interface';
-import { wording } from '../wording';
 
 const { utils, createPlugin } : typeof stylelint = stylelint;
 const ruleName : string = '@isnotdefined/no-disable';
@@ -30,7 +32,7 @@ function rule(primaryOptions : Options)
 		{
 			root.walkComments(comment =>
 			{
-				if (options.commands.includes(comment.text.split(' ')[0]))
+				if (options.commands.includes(comment.text.split(' ').at(0)))
 				{
 					utils.report(
 					{
