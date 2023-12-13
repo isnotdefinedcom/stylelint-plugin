@@ -31,7 +31,7 @@ describe('no-disable', () =>
 				}
 			});
 
-			expect(linterResult.results[0]._postcssResult.messages[index].text).to.equal(message);
+			expect(linterResult.results.at(0)._postcssResult.messages[index].text).to.equal(message);
 		});
 	});
 });
