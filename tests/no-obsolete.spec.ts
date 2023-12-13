@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import stylelint, { LinterResult } from 'stylelint';
+import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
 const { lint } : typeof stylelint = stylelint;
 
@@ -46,9 +46,11 @@ describe('no-obsolete', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
+				configBasedir: '.',
 				files: './tests/providers/no-obsolete.css',
 				config:
 				{
+					configBasedir: '.',
 					plugins:
 					[
 						'./src'
@@ -58,7 +60,7 @@ describe('no-obsolete', () =>
 						'@isnotdefined/no-obsolete': true
 					}
 				}
-			});
+			} as LinterOptions);
 
 			expect(linterResult.results.at(0)._postcssResult.messages[index].text).to.equal(message);
 		});

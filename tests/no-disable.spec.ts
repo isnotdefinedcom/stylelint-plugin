@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import stylelint, { LinterResult } from 'stylelint';
+import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
 const { lint } : typeof stylelint = stylelint;
 
@@ -16,6 +16,7 @@ describe('no-disable', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
+				configBasedir: '.',
 				files: './tests/providers/no-disable.css',
 				config:
 				{
@@ -29,7 +30,7 @@ describe('no-disable', () =>
 					},
 					ignoreDisables: true
 				}
-			});
+			} as LinterOptions);
 
 			expect(linterResult.results.at(0)._postcssResult.messages[index].text).to.equal(message);
 		});
