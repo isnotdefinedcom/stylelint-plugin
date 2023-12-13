@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { expect } from 'chai';
 import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
@@ -17,13 +19,12 @@ describe('unit-step', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
-				configBasedir: '.',
 				files: './tests/providers/unit-step.css',
 				config:
 				{
 					plugins:
 					[
-						'./src'
+						path.resolve('./src')
 					],
 					rules:
 					{

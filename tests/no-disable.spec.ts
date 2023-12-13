@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { expect } from 'chai';
 import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
@@ -16,13 +18,12 @@ describe('no-disable', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
-				configBasedir: '.',
 				files: './tests/providers/no-disable.css',
 				config:
 				{
 					plugins:
 					[
-						'./src'
+						path.resolve('./src')
 					],
 					rules:
 					{

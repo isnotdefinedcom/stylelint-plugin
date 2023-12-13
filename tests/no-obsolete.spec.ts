@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { expect } from 'chai';
 import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
@@ -46,14 +48,12 @@ describe('no-obsolete', () =>
 		{
 			const linterResult : LinterResult = await lint(
 			{
-				configBasedir: '.',
 				files: './tests/providers/no-obsolete.css',
 				config:
 				{
-					configBasedir: '.',
 					plugins:
 					[
-						'./src'
+						path.resolve('./src')
 					],
 					rules:
 					{
