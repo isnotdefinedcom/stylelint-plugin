@@ -59,7 +59,5 @@
 		"lint": "eslint src tests --ext .ts",
 		"fix": "npm run lint -- --fix",
 		"test": "mocha"
-	},
-	"main": "index.cjs",
-	"module": "index.mjs"
+	}
 }

@@ -24,7 +24,7 @@ describe('unit-step', () =>
 				{
 					plugins:
 					[
-						path.resolve('./src')
+						path.resolve(path.resolve(), './src')
 					],
 					rules:
 					{

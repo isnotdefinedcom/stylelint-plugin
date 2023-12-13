@@ -53,7 +53,7 @@ describe('no-obsolete', () =>
 				{
 					plugins:
 					[
-						path.resolve('./src')
+						path.resolve(path.resolve(), './src')
 					],
 					rules:
 					{

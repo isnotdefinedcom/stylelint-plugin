@@ -23,7 +23,7 @@ describe('no-disable', () =>
 				{
 					plugins:
 					[
-						path.resolve('./src')
+						path.resolve(path.resolve(), './src')
 					],
 					rules:
 					{
