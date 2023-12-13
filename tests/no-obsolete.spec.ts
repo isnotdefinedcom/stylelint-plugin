@@ -1,5 +1,3 @@
-import path from 'path';
-
 import { expect } from 'chai';
 import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
@@ -53,7 +51,7 @@ describe('no-obsolete', () =>
 				{
 					plugins:
 					[
-						path.resolve(path.resolve(), './src')
+						'./src/index.ts'
 					],
 					rules:
 					{

@@ -1,5 +1,3 @@
-import path from 'path';
-
 import { expect } from 'chai';
 import stylelint, { LinterResult, LinterOptions } from 'stylelint';
 
@@ -24,7 +22,7 @@ describe('unit-step', () =>
 				{
 					plugins:
 					[
-						path.resolve(path.resolve(), './src')
+						'./src/index.ts'
 					],
 					rules:
 					{
