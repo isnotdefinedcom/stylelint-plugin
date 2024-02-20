@@ -1,7 +1,7 @@
 {
 	"name": "@isnotdefined/stylelint-plugin",
 	"description": "Yet another Stylelint plugin",
-	"version": "4.0.0",
+	"version": "4.0.0-fix.1",
 	"license": "MIT",
 	"type": "module",
 	"keywords":
@@ -60,6 +60,9 @@
 		"fix": "npm run lint -- --fix",
 		"test": "mocha"
 	},
-	"main": "index.cjs",
-	"module": "index.mjs"
+	"exports":
+	{
+		"require": "index.cjs",
+		"import": "index.js"
+	}
 }
