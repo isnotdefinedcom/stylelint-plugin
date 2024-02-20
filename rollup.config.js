@@ -9,11 +9,7 @@ export default
 	output:
 	[
 		{
-			file: 'build/' + PACKAGE.exports.require,
-			format: 'cjs'
-		},
-		{
-			file: 'build/' + PACKAGE.exports.import,
+			file: 'build/' + PACKAGE.main,
 			format: 'esm'
 		}
 	],
